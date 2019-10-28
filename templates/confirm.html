@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <title>万圣节鬼屋门票平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/card@2.3.0/dist/mdc.card.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/button@2.3.0/dist/mdc.button.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/typography@2.3.0/dist/mdc.typography.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/top-app-bar@2.3.0/dist/mdc.top-app-bar.min.css" />
+  <link rel="stylesheet" href="https://fonts.loli.net/icon?family=Material+Icons" />
+  <link rel="stylesheet" href={{url_for('static', filename='css/confirm.css')}}>
+</head>
+<body>
+  <div class="container">
+    <header class="mdc-top-app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+          <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" onclick="javascript: window.location='/';">
+          home
+          </button>
+          <span class="mdc-top-app-bar__title">确认购票信息</span>
+        </section>
+      </div>
+    </header>
+    <p class="message">如果您知道如何解决这个问题，欢迎加入KEEER</p>
+
+    <div class="mdc-card card">
+      <p class="mdc-typography--body2">进场时间：{{TICKET['body']['start_time']}}</p>
+      <p class="mdc-typography--body2">价格：{{PRICE / 100}} Kredit</p>
+      <p class="mdc-typography--body1 center"> 请您<b>务必</b>仔细阅读并同意<a href='/terms'>注意事项</a></p>
+      <p>点击下方的按钮即表示您已经阅读并同意注意事项</p>
+      <form action="/confirm" method="POST">
+        <input id="id" name="id" class="hidden"></input>
+        <button class="mdc-button mdc-button--raised confirm-button">确认并购买</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="bottom">
+    <!-- a bunch of todos-->
+    <a href="https://keeer.net/" class="link"><img class="keeer-logo" src="https://keeer.net/img/logo/dark-large.svg" /></a>
+    <p>Copyright © 2015-present KEEER. </p>
+    <p>All rights reserved.</p>
+  </div>
+</body>
+<script>
+  document.querySelector('#id').value = {{TICKET['id']}};
+</script>
+</html>

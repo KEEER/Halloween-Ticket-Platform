@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+
+
+<head>
+  <meta charset="utf-8">
+  <title>万圣节鬼屋门票平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/tab@2.3.0/dist/mdc.tab.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/tab-bar@2.3.0/dist/mdc.tab-bar.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/tab-scroller@2.3.0/dist/mdc.tab-scroller.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/tab-indicator@2.3.0/dist/mdc.tab-indicator.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/card@2.3.0/dist/mdc.card.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/textfield@2.3.1/dist/mdc.textfield.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/checkbox@2.3.0/dist/mdc.checkbox.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/form-field@2.3.0/dist/mdc.form-field.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/button@2.3.0/dist/mdc.button.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/typography@2.3.0/dist/mdc.typography.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/ripple@2.3.0/dist/mdc.ripple.min.css" />
+  <link rel="stylesheet" href="https://fonts.loli.net/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/snackbar@2.3.0/dist/mdc.snackbar.min.css" />
+  <link rel="stylesheet" href={{url_for('static', filename = 'css/login.css')}}>
+  <meta name="theme-color" content="#424242" />
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div id="slogan">
+      <h1 class="mdc-typography--headline4" id="title">
+        登录您的KEEER账户
+      </h1>
+      <p class="mdc-typography--subtitle1" id="subtitle">拥有一个KEEER账户 以购买万圣节活动鬼屋门票</p>
+    </div>
+    <div id="regbox-out">
+      <div id="regbox" class="mdc-card">
+        <div class="mdc-tab-bar" role="tablist" data-mdc-auto-init="MDCTabBar">
+          <div class="mdc-tab-scroller">
+            <div class="mdc-tab-scroller__scroll-area">
+              <div class="mdc-tab-scroller__scroll-content">
+                <button id="tab-login" class="mdc-tab" role="tab" aria-selected="false" tabindex="0">
+                  <span class="mdc-tab__content">
+                    <span class="mdc-tab__text-label">登录</span>
+                  </span>
+                  <span class="mdc-tab-indicator">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                  </span>
+                  <span class="mdc-tab__ripple"></span>
+                </button>
+                <button id="tab-register" class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="1">
+                  <span class="mdc-tab__content">
+                    <span class="mdc-tab__text-label">注册</span>
+                  </span>
+                  <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                  </span>
+                  <span class="mdc-tab__ripple"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <!-- TODO: Real login -->
+        <div id="register">
+          <form method = 'POST' action = '/login'>
+
+            <div class="mdc-text-field mdc-text-field--outlined text-field" data-mdc-auto-init="MDCTextField">
+              <input name="nickname" type="text" id="tf-outlined" class="mdc-text-field__input">
+              <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                  <label for="tf-outlined" class="mdc-floating-label">您的昵称</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+              </div>
+            </div>
+            
+            <div class="separator"></div>
+
+            <div class="mdc-text-field mdc-text-field--outlined text-field" data-mdc-auto-init="MDCTextField">
+              <input name="phone_number" type="tel" id="tel" class="mdc-text-field__input">
+              <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                  <label for="tel" class="mdc-floating-label">您的手机号</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+              </div>
+            </div>
+
+            <div class="separator"></div>
+
+            <div class="mdc-text-field mdc-text-field--outlined text-field" data-mdc-auto-init="MDCTextField">
+              <input name="verification_code" type="text" id="tf-outlined" class="mdc-text-field__input input-fix">
+              <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                  <label for="tf-outlined" class="mdc-floating-label">验证码</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+              </div>
+              <button type="button" class="mdc-button mdc-button--unelevated send-button" id="send">
+                发送验证码
+              </button>
+            </div>
+
+            <div class="separator"></div>
+            
+            <div class="mdc-text-field mdc-text-field--outlined text-field" data-mdc-auto-init="MDCTextField">
+              <input name="password" type="password" id="tf-outlined" class="mdc-text-field__input">
+              <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                  <label for="tf-outlined" class="mdc-floating-label">密码</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+              </div>
+            </div>
+            <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent"
+              data-mdc-auto-init="MDCTextFieldHelperText">6位以上，请挑选一个强壮的密码。
+            </div>
+
+            <div class="separator"></div>
+
+            <div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
+              <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
+                <input type="checkbox" class="mdc-checkbox__native-control" id="agree" required />
+                <div class="mdc-checkbox__background checkbox">
+                  <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                    <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                  </svg>
+                  <div class="mdc-checkbox__mixedmark"></div>
+                </div>
+              </div>
+              <label for="agree">我已阅读并同意<a href="/tac.html" target="_blank">用户协议</a>和<a href="/privacy-policy.html" target="_blank">隐私政策</a></label>
+            </div>
+            <center>
+              <button class="mdc-button mdc-button--unelevated confirm-button" id="register-button" data-mdc-auto-init="MDCRipple">注册</button>
+            </center>
+          </form>
+        </div>
+
+        <div id="login" class="hidden">
+          <form method="POST" action="/login">
+            
+            <div class="mdc-text-field mdc-text-field--outlined text-field" data-mdc-auto-init="MDCTextField">
+              <input name="identity" type="text" id="identity" class="mdc-text-field__input">
+              <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                  <label for="identity" class="mdc-floating-label">手机号</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+              </div>
+            </div>
+
+            <div class="separator"></div>
+
+            <div class="mdc-text-field mdc-text-field--outlined text-field" data-mdc-auto-init="MDCTextField">
+              <input name="password" type="password" id="tf-outlined" class="mdc-text-field__input">
+              <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                  <label for="tf-outlined" class="mdc-floating-label">密码</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+              </div>
+            </div>
+            
+            <input class="hidden" name="login" />
+
+            <center>
+              <button type="submit" class="mdc-button mdc-button--unelevated confirm-button" id="login-button" data-mdc-auto-init="MDCRipple">登录</button>
+            </center>
+          </form>
+          <a class="mdc-button" href="https://account.keeer.net/password_findback">忘了密码</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="smsSnackbar" class="mdc-snackbar snackbar">
+    <div class="mdc-snackbar__surface">
+      <div class="mdc-snackbar__label"
+          role="status"
+          aria-live="polite"
+          id="smsSnackbarContent">
+
+      </div>
+      <div class="mdc-snackbar__actions">
+        <button type="button" class="mdc-button mdc-snackbar__dismiss">
+        关闭
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="actionSnackbar" class="mdc-snackbar snackbar">
+    <div class="mdc-snackbar__surface">
+      <div class="mdc-snackbar__label"
+          role="status"
+          aria-live="polite"
+          id="actionSnackbarContent">
+
+      </div>
+      <div class="mdc-snackbar__actions">
+        <button type="button" class="mdc-button mdc-snackbar__dismiss">
+        关闭
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="bottom">
+    <!-- a bunch of todos-->
+    <a href="https://keeer.net/" class="link"><img class="keeer-logo" src="https://keeer.net/img/logo/light-large.svg" /></a>
+    <a href="/tac" class="link">用户协议</a>
+    <a href="/privacy-policy" class="link">隐私政策</a>
+    <a href="/" class="link">联系我们</a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@material/tab-bar@2.3.0/dist/mdc.tabBar.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@material/tab@2.3.0/dist/mdc.tab.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@material/snackbar@2.3.0/dist/mdc.snackbar.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@material/tab-scroller@2.3.0/dist/mdc.tabScroller.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@material/tab-indicator@2.3.0/dist/mdc.tabIndicator.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@material/auto-init@2.3.0/dist/mdc.autoInit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@material/textfield@2.3.1/dist/mdc.textfield.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@material/checkbox@2.3.0/dist/mdc.checkbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@material/form-field@2.3.0/dist/mdc.formField.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@material/ripple@2.3.0/dist/mdc.ripple.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@material/snackbar@3.1.0/dist/mdc.snackbar.min.js"></script>
+  <script src={{url_for('static', filename="js/request_error_info.js")}}></script>
+  <script src={{url_for('static', filename="js/api_error_info.js")}}></script>
+  <script>
+    mdc.autoInit.mdcAutoInit.register('MDCTabBar', mdc.tabBar.MDCTabBar)
+    mdc.autoInit.mdcAutoInit.register('MDCSnackbar', mdc.snackbar.MDCSnackbar)
+    mdc.autoInit.mdcAutoInit.register('MDCTextField', mdc.textfield.MDCTextField)
+    mdc.autoInit.mdcAutoInit.register('MDCTextFieldHelperText', mdc.textfield.MDCTextFieldHelperText)
+    mdc.autoInit.mdcAutoInit.register('MDCFormField', mdc.formField.MDCFormField)
+    mdc.autoInit.mdcAutoInit.register('MDCCheckbox', mdc.checkbox.MDCCheckbox)
+    mdc.autoInit.mdcAutoInit.register('MDCRipple', mdc.ripple.MDCRipple)
+    mdc.autoInit.mdcAutoInit()
+
+    var $ = function(sel) { return document.querySelector(sel) }
+
+    $('#tab-login').onclick = function() {
+      $('#login').classList.remove('hidden')
+      $('#register').classList.add('hidden')
+    }
+    $('#tab-register').onclick = function() {
+      $('#login').classList.add('hidden')
+      $('#register').classList.remove('hidden')
+    }
+
+    var smsSnackbar = new mdc.snackbar.MDCSnackbar($('#smsSnackbar'));
+    $('#send').onclick = function () {
+        var request = new XMLHttpRequest();
+        request.open('POST', '/send_sms', true);
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        //request.setRequestHeader("Content-Type", "application/json");
+        request.onreadystatechange = function() {
+            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                console.log('succeed');
+                console.log(request.responseText);
+                response = JSON.parse(request.responseText)
+                if (response['status'] == 0) {
+                  if (response['result']['status'] == 0) {
+                    $('#smsSnackbarContent').innerText = "成功发送验证码"
+                    smsSnackbar.open()
+                  } else {
+                    $('#smsSnackbarContent').innerText = apiErrorInfo[response['result']['status']]
+                    smsSnackbar.open()
+                  }
+                } else {
+                  $('#smsSnackbarContent').innerText = requestErrorInfo[response['status']]
+                  smsSnackbar.open()
+                }
+            } else {
+                console.log('server error');
+            }
+        };
+
+        request.onerror = function() {
+            console.log('something went wrong');
+        };
+        csrfValue = Math.random().toString(36).substring(7);
+        document.cookie = 'csrf='+csrfValue;
+        request.send('phone_number='+$("#tel").value+'&purpose=2002&_csrf='+csrfValue);
+    }
+    var actionSnackbar = new mdc.snackbar.MDCSnackbar($('#actionSnackbar'))
+    {% if has_error %}
+      {% if request_status != 0 %}
+        $('#actionSnackbarContent').innerText = requestErrorInfo[{{request_status}}];
+        actionSnackbar.open()
+      {% endif %}
+      {% if api_status != 0 %}
+        $('#actionSnackbarContent').innerText = apiErrorInfo[{{api_status}}];
+        actionSnackbar.open()
+      {% endif %}
+    {% endif %}
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <title>万圣节鬼屋门票平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/card@2.3.0/dist/mdc.card.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/button@2.3.0/dist/mdc.button.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/typography@2.3.0/dist/mdc.typography.min.css" />
+  <link rel="stylesheet" href={{url_for('static', filename='css/index.css')}}>
+</head>
+<body>
+  <div class="container">
+    <div class="mdc-card card">
+      <h2 class="mdc-typography--headline4">欢迎 {{NICKNAME}}</h2>
+      <button class="mdc-button mdc-button--raised option" onclick="javascript: window.location='/buy'">购买门票</button>
+      <button class="mdc-button mdc-button--raised option" onclick="javascript: window.location='/tickets'">我的门票</button>
+    </div>
+  </div>
+
+  <div id="bottom">
+    <!-- a bunch of todos-->
+    <a href="https://keeer.net/" class="link"><img class="keeer-logo" src="https://keeer.net/img/logo/dark-large.svg" /></a>
+    <p>Copyright © 2015-present KEEER. </p>
+    <p>All rights reserved.</p>
+  </div>
+</body>
+</html>

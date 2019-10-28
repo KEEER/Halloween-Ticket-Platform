@@ -1,0 +1,49 @@
+body {
+    --mdc-theme-primary: #424242;
+    --mdc-theme-secondary: #ff8f00;
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+}
+
+body::before, body::after {
+    content: ' ';
+    flex: auto;
+}
+
+.container {
+    margin: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+.card {
+    width: 90%;
+    border-radius: 24px;
+}
+.option {
+    margin: 16px;
+    text-align: center;
+    border-radius: 24px;
+    height: 16vh;
+}
+
+#bottom {
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 10px;
+    line-height: 16px;
+    color: #002d4d;
+    width: 50%;
+    left: 25%;
+    text-align: center;
+}
+.keeer-logo {
+  height: 16px;
+  position: relative;
+  bottom: -4px;
+}

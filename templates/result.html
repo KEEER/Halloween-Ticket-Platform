@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <title>万圣节鬼屋门票平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/card@2.3.0/dist/mdc.card.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/button@2.3.0/dist/mdc.button.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/typography@2.3.0/dist/mdc.typography.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/top-app-bar@2.3.0/dist/mdc.top-app-bar.min.css" />
+  <link rel="stylesheet" href="https://fonts.loli.net/icon?family=Material+Icons" />
+  <link rel="stylesheet" href={{url_for('static', filename='css/confirm.css')}}>
+</head>
+<body>
+  <div class="container">
+    <div class="mdc-card card">
+      {% if SUCCEED %}
+        <h5 class="mdc-typography--headline5 center">购买成功！</h5>
+        <button class="mdc-button mdc-button--raised confirm-button" onclick="javascript:window.location='/tickets';">查看</button>
+      {% else %}
+        <h5 class="mdc-typography--headline5 center">购买失败</h5>
+        <span class="mdc-typography--subtitle2 center">{{MESSAGE}}</span>
+        <button class="mdc-button mdc-button--raised confirm-button" onclick="javascript:window.location='/buy';">返回</button>
+      {% endif %}
+    </div>
+  </div>
+
+  <div id="bottom">
+    <!-- a bunch of todos-->
+    <a href="https://keeer.net/" class="link"><img class="keeer-logo" src="https://keeer.net/img/logo/dark-large.svg" /></a>
+    <p>Copyright © 2015-present KEEER. </p>
+    <p>All rights reserved.</p>
+  </div>
+</body>
+</html>

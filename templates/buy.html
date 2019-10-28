@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <title>万圣节鬼屋门票平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/card@2.3.0/dist/mdc.card.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/button@2.3.0/dist/mdc.button.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/typography@2.3.0/dist/mdc.typography.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/top-app-bar@2.3.0/dist/mdc.top-app-bar.min.css" />
+  <link rel="stylesheet" href="https://fonts.loli.net/icon?family=Material+Icons" />
+  <link rel="stylesheet" href={{url_for('static', filename='css/buy.css')}}>
+</head>
+<body>
+  <div class="container">
+  <header class="mdc-top-app-bar">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" onclick="javascript: window.location='/';">
+        home
+        </button>
+        <span class="mdc-top-app-bar__title">欢迎您 {{NICKNAME}}</span>
+      </section>
+    </div>
+  </header>
+  <p class="message">如果您知道如何解决这个问题，欢迎加入KEEER</p>
+    
+  <div class="mdc-card message-card-base">
+    <p class="message">您还有 {{AVALIABLE_AMOUNT / 100}} Kredit</p>
+    {% if AVALIABLE_AMOUNT < PRICE %}
+      <div class="message-card">
+        <p class="message"> 您的Kredit余额不足购买一张门票</p>
+        <button class="mdc-button mdc-button--raised" onclick='/recharge'>充值</button>
+      </div>
+    {% endif %}
+  </div>
+  {% for ticket in TICKETS%}
+    <div class="mdc-card card">
+      <div class="mdc-card__media mdc-card__media--16-9"></div>
+      <h4 class="mdc-typography--headline5">时间段 {{ticket['id']+1}}：</h4>
+      <span class="mdc-typography--body1">进场时间：{{ticket['body']['start_time']}}</span>
+      <span class="mdc-typography--body2">过期时间：2019年11月1日下午10时00分</span>
+      <span class="mdc-typography--body2">剩余 {{ticket['body']['free_position']}} 张票</span>
+      <span class="mdc-typography--body2">单张价格：{{PRICE / 100}} Kredit</span>
+      <div class="mdc-card__actions">
+        {% if ticket['body']['free_position'] > 0 %}
+          <button class="mdc-button mdc-card__action mdc-card__action--button" onclick="javascript:window.location='/confirm?id={{ticket['id']}}';">
+          <span class="mdc-button__label">购买</span>
+        {% else %}
+          <button class="mdc-button mdc-card__action mdc-card__action--button" disabled>
+          <span class="mdc-button__label">已售空</span>
+        {% endif %}
+      </div>
+    </div>
+  </button>
+    <div>
+    </div>
+    {% endfor %}
+
+  </div>
+</body>
+</html>

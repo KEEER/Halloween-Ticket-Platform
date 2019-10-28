@@ -1,0 +1,38 @@
+body {
+    --mdc-theme-primary: #424242;
+    --mdc-theme-secondary: #ff8f00;
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+}
+
+body::before, body::after {
+    content: ' ';
+    flex: auto;
+}
+.message-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px;
+    width: 85%;
+}
+.message-card-base {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.message {
+    min-width: 0;
+    flex: 1;
+}
+.container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.card {
+    margin: 16px;
+    padding: 8px;
+}
