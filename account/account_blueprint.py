@@ -81,4 +81,4 @@ def process_login():
                             return flask_response
                 return render_template('login.html', has_error=True, request_status = response['status'], api_status = response['result']['status'])
             except Exception as e:
-                return str(e), 401
+                raise e

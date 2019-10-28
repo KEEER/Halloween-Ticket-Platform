@@ -21,7 +21,8 @@ def process_buy_ticket():
 @buy_blueprint.route(ROUTES.RECHARGE_REDIRECT, methods = ['GET'])
 def process_recharge_redirect():
     redirect_response = make_response(redirect('https://account.keeer.net/pay?amount=%s'%EVENT_INFO.PRICE_PER_PERSON))
-    redirect_response.set_cookie('kas-account-token', request.cookies.get('kas-account-token',''))
+    redirect_response.set_cookie('kas-account-token', request.cookies.get('kas-account-token',''), max_age=5*60)
+    print('Recharge redirecting...')
     return redirect_response
 
 @buy_blueprint.route(ROUTES.CONFIRM_PAGE, methods=['GET', 'POST'])
