@@ -61,17 +61,21 @@ def process_login():
                     'verification_code': request.form['verification_code']
                 }
                 response = requests.post('https://account.keeer.net/api/ess/register' , form, headers = {'User-agent': 'Mozilla/5.0'})
+                if response.status_code != 200:
+                    return '<h1>%s : %s</h1>'%(response.status_code, response.text), response.status_code
                 response = response.json()
                 if response['status'] == 0:
-                    print('DEBUG:', response)
                     if response['result']['status'] == 0:
                         token = response['result']['result']
                         form = {
                             'token': token,
                             'nickname': request.form['nickname'],
                         }
-                        response = requests.post('https://account.keeer.net/api/profile/set_nickname' , form, headers = {'User-agent': 'Mozilla/5.0'})
-                        if response['status'] == 0 and response['result']['status'] == 0:
+                        print('New user registered successfully; setting nickname...')
+                        set_nickname_response = requests.post('https://account.keeer.net/api/profile/set_nickname' , form, headers = {'User-agent': 'Mozilla/5.0'})
+                        if set_nickname_response.status_code != 200:
+                            return '<h1>%s : %s</h1>'%(set_nickname_response.status_code, set_nickname_response.text), set_nickname_response.status_code
+                        if set_nickname_response['status'] == 0 and set_nickname_response['result']['status'] == 0:
                             flask_response = make_response(redirect('/'))
                             flask_response.set_cookie('kas-account-token', token)
                             return flask_response
