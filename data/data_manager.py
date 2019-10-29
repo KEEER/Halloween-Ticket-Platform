@@ -128,7 +128,7 @@ def load_tickets_from_file():
     	    tickets.append({
                 'id': (i-(5*60+30))//15,
                 'body': {
-                    'start_time': '2019 年 11 月 1 日 下午 %d 时 %.2d 分'% (i//60,i%60),
+                    'start_time': '2019年11月1日下午%d时%.2d分'% (i//60,i%60),
                     'free_position': 25
                 }
             })

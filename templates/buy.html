@@ -40,9 +40,9 @@
       <div>
         <h4 class="mdc-typography--headline5">时间段 {{ticket['id']+1}}：</h4>
         <p class="mdc-typography--body1">进场时间：{{ticket['body']['start_time']}}</span>
-        <p class="mdc-typography--body2">过期时间：2019年11月1日下午10时00分</span>
         <p class="mdc-typography--body2">剩余 {{ticket['body']['free_position']}} 张票</span>
         <p class="mdc-typography--body2">单张价格：{{PRICE / 100}} Kredit</span>
+        <p class="mdc-typography--body2"><b>请您在进场时间前5分钟在入口等待，超过进场时间此票自动失效<b></span>
       </div>
       <div>
         {% if ticket['body']['free_position'] > 0 %}

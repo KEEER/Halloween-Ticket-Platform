@@ -36,6 +36,7 @@
         <p class="mdc-typography--body2">过期时间：2019年11月1日下午10时00分</span>
         <p class="mdc-typography--body2">唯一门票码：{{ticket['id']}}</span>
         <p class="mdc-typography--body2">门票状态：{{STATUS_TO_STRING[STATUS[ticket['id']]]}}</span>
+        <p class="mdc-typography--body2"><b>请您在进场时间前5分钟在入口等待，超过进场时间此票自动失效<b></span>
         {% if STATUS[ticket['id']] == 0%}
           <p class="mdc-typography--body2 center">入场时请向工作人员出示以下二维码</span>
           <div id="qrcode"></div>
