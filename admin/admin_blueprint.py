@@ -95,7 +95,7 @@ def process_admin_login():
     return rsp
 
 @admin_blueprint.route(ROUTES.STATS, methods=['GET'])
-def process_admin_scan():
+def process_stats():
     code = request.cookies.get('admin-code','')
     if code == '' or code not in admin_tokens:
         return '''
