@@ -13,19 +13,22 @@ def process_tickets():
     token = request.cookies.get('kas-account-token','')
     if token == '':
         return redirect('/login')
-    user = data_manager.get_user(token)
-    amount = data_manager.get_user_kredit_amount(token)
-    user_info = data_manager.get_user_informtaion(token)
-    print(user._tickets)
-    return render_template(
-        'tickets.html',
-        AVALIABLE_AMOUNT = int(amount),
-        PRICE = EVENT_INFO.PRICE_PER_PERSON,
-        NICKNAME = user_info['nickname'],
-        TICKETS = user._tickets,
-        STATUS = data_manager.ticket_status,
-        STATUS_TO_STRING = TICKET_STATUS.STATUS_MESSAGE,
-        SERVER_ADDRESS = 'https://ticket.keeer.net'
-    )
+    try:
+        user = data_manager.get_user(token)
+        amount = data_manager.get_user_kredit_amount(token)
+        user_info = data_manager.get_user_informtaion(token)
+        return render_template(
+            'tickets.html',
+            AVALIABLE_AMOUNT = int(amount),
+            PRICE = EVENT_INFO.PRICE_PER_PERSON,
+            NICKNAME = user_info['nickname'],
+            TICKETS = user._tickets,
+            STATUS = data_manager.ticket_status,
+            STATUS_TO_STRING = TICKET_STATUS.STATUS_MESSAGE,
+            SERVER_ADDRESS = 'https://ticket.keeer.net'
+        )
+    except Exception as e:
+        print('ERROR: %s'%str(e))
+        return redirect('/login')
 
 
