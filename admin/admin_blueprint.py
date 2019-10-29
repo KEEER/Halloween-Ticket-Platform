@@ -12,6 +12,7 @@ def process_admin_scan():
         return '''
         <html>
         <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <style>
           body {
             margin: 0;
@@ -19,11 +20,11 @@ def process_admin_scan():
             flex-direction: column;
           }
           h1 {
-            height: 32px;
+            height: 64px;
           }
           iframe {
             width: 100%;
-            height: calc(100vh - 32px);
+            height: calc(100vh - 64px);
           }
         </style>
         </head>
@@ -48,6 +49,7 @@ def process_admin_login():
         <!DOCTYPE HTML>
         <html>
           <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <style>
             body::before, body::after {
               content: ' ';
@@ -103,6 +105,7 @@ def process_stats():
     code = request.cookies.get('admin-code','')
     if code == '' or code not in admin_tokens:
         return '''
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <h1>
             <p>哈，被我发现了！你不是鬼屋的工作人员~</p>
           </h1>'''
@@ -118,6 +121,7 @@ def process_stats():
     return '''
     <html lang="zh">
     <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
     body{
         margin: 8px;

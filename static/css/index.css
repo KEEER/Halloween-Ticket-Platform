@@ -4,6 +4,8 @@ body {
     display: flex;
     margin: 0;
     flex-direction: column;
+    background-image: url('https://s2.ax1x.com/2019/10/29/Kfa9Nd.jpg');
+    background-size: cover;
 }
 
 body::before, body::after {
@@ -18,9 +20,9 @@ body::before, body::after {
     justify-content: center;
     text-align: center;
 }
-.card {
+.mdc-card__media {
  
-  
+  background-image: url('https://s2.ax1x.com/2019/10/29/Kfal3q.jpg');
 }
 .option {
     margin: 16px;
