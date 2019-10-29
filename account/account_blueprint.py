@@ -47,8 +47,7 @@ def process_login():
                 if response['status'] == 0:
                     if response['result']['status'] == 0:
                         flask_response = make_response(redirect('/'))
-                        flask_response.set_cookie('kas-account-token', response['result']['result'])
-                        flask_response.set_cookie('Max-Age', '604800')
+                        flask_response.set_cookie('kas-account-token', response['result']['result'], max_age=72*60*60, domain='.keeer.net')
                         return flask_response
                 return render_template('login.html', has_error=True, request_status = response['status'], api_status = response['result']['status'])
             except Exception as e:
