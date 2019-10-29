@@ -131,6 +131,6 @@ def process_stats():
     </html>'''%(
         len(data_manager.ticket_status), 
         unused_amount, 
-        str(round(unused_ratio,3)), 
+        str(unused_ratio), 
         len(admin_tokens)
     )
