@@ -32,7 +32,7 @@
   {% for ticket in TICKETS%}
     <div class="mdc-card card">
       <div>
-        <p class="mdc-typography--body1">进场时间：{{ticket['info']}}</span>
+        <h5 class="mdc-typography--headline5"><p>进场时间：{{ticket['info']}}</p></h5>
         <p class="mdc-typography--body2">唯一门票码：{{ticket['id']}}</span>
         <p class="mdc-typography--body2">门票状态：{{STATUS_TO_STRING[STATUS[ticket['id']]]}}</span>
         <p class="mdc-typography--body2"><b>请您在进场时间前5分钟在入口等待，超过进场时间此票自动失效<b></span>
@@ -55,5 +55,8 @@
       </div>
     </div>
   {% endfor %}
+  <div style="display:none;">
+    <script type="text/javascript" src="https://v1.cnzz.com/z_stat.php?id=1278156489&web_id=1278156489"></script>
+  </div>
 </body>
 </html>

@@ -18,24 +18,28 @@ def process_admin_scan():
             display: flex;
             flex-direction: column;
           }
+          h1 {
+            height: 32px;
+          }
           iframe {
             width: 100%;
-            height: auto;
+            height: calc(100vh - 32px);
           }
         </style>
         </head>
         <body>
           <h1>
-            <p>哈，被我发现了！你不是鬼屋的工作人员~</p>
-            <p>如果你实在无聊的话，玩玩这个游戏怎么样？</p>
+          哈，被我发现了！你不是鬼屋的工作人员~ 如果你实在无聊的话，玩玩这个游戏怎么样？
           </h1>
-          <iframe src="" class=""></iframe>
+          <iframe src="https://about.keeer.net/256/" class=""></iframe>
         </body>
       </html>'''
     if ticket == '':
         return 'Invalid form', 400
+    if data_manager.ticket_status[ticket] != TICKET_STATUS.UNUSED:
+          return '<meta name="viewport" content="width=device-width, initial-scale=1.0" /><h1>请注意！这张票已经失效！</h1>'
     data_manager.ticket_status[ticket] = TICKET_STATUS.USED
-    return '<h1>成功检票！</h1>'
+    return '<meta name="viewport" content="width=device-width, initial-scale=1.0" /><h1>成功检票！</h1>'
 
 @admin_blueprint.route(ROUTES.ADMIN_LOGIN, methods=['GET','POST'])
 def process_admin_login():
@@ -101,7 +105,6 @@ def process_stats():
         return '''
           <h1>
             <p>哈，被我发现了！你不是鬼屋的工作人员~</p>
-            <p>如果你实在无聊的话，玩玩这个游戏怎么样？</p>
           </h1>'''
     
     unused_amount = 0
