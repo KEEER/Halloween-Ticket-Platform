@@ -117,9 +117,9 @@ def process_stats():
     <head>
     <style>
     body{
-      margin: 8px;
-      text-align: center;
-    }
+        margin: 8px;
+       text-align: center;
+      }
     </style>
     </head>
     <body>
@@ -128,4 +128,9 @@ def process_stats():
     <h1>门票未使用比例：%s %</h1>
     <h1>在线管理员数量：%d</h1>
     </body>
-    </html>'''%(len(data_manager.ticket_status), unused_amount, str(round(unused_ratio,3)), len(admin_tokens))
+    </html>'''%(
+        len(data_manager.ticket_status), 
+        unused_amount, 
+        str(round(unused_ratio,3)), 
+        len(admin_tokens)
+    )
