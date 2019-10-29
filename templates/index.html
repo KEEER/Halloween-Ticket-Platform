@@ -12,9 +12,12 @@
 <body>
   <div class="container">
     <div class="mdc-card card">
+      <div class="mdc-card__media mdc-card__media--16-9"></div>
       <h2 class="mdc-typography--headline4">欢迎 {{NICKNAME}}</h2>
-      <button class="mdc-button mdc-button--raised option" onclick="javascript: window.location='/buy'">购买门票</button>
-      <button class="mdc-button mdc-button--raised option" onclick="javascript: window.location='/tickets'">我的门票</button>
+      <div>
+        <button class="mdc-button mdc-button--raised option" onclick="javascript: window.location='/buy'">购买门票</button>
+        <button class="mdc-button mdc-button--outlined option" onclick="javascript: window.location='/tickets'">我的门票</button>
+      <div>
     </div>
   </div>
 

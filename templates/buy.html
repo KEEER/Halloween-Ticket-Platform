@@ -37,19 +37,22 @@
   </div>
   {% for ticket in TICKETS%}
     <div class="mdc-card card">
-      <div class="mdc-card__media mdc-card__media--16-9"></div>
-      <h4 class="mdc-typography--headline5">时间段 {{ticket['id']+1}}：</h4>
-      <span class="mdc-typography--body1">进场时间：{{ticket['body']['start_time']}}</span>
-      <span class="mdc-typography--body2">过期时间：2019年11月1日下午10时00分</span>
-      <span class="mdc-typography--body2">剩余 {{ticket['body']['free_position']}} 张票</span>
-      <span class="mdc-typography--body2">单张价格：{{PRICE / 100}} Kredit</span>
-      <div class="mdc-card__actions">
+      <div>
+        <h4 class="mdc-typography--headline5">时间段 {{ticket['id']+1}}：</h4>
+        <p class="mdc-typography--body1">进场时间：{{ticket['body']['start_time']}}</span>
+        <p class="mdc-typography--body2">过期时间：2019年11月1日下午10时00分</span>
+        <p class="mdc-typography--body2">剩余 {{ticket['body']['free_position']}} 张票</span>
+        <p class="mdc-typography--body2">单张价格：{{PRICE / 100}} Kredit</span>
+      </div>
+      <div>
         {% if ticket['body']['free_position'] > 0 %}
-          <button class="mdc-button mdc-card__action mdc-card__action--button" onclick="javascript:window.location='/confirm?id={{ticket['id']}}';">
-          <span class="mdc-button__label">购买</span>
+          <button class="mdc-button mdc-button--raised" onclick="javascript:window.location='/confirm?id={{ticket['id']}}';">
+            <span>购买</span>
+          </button>
         {% else %}
-          <button class="mdc-button mdc-card__action mdc-card__action--button" disabled>
-          <span class="mdc-button__label">已售空</span>
+          <button class="mdc-button mdc-button--raised" disabled>
+            <span >已售空</span>
+          </button>
         {% endif %}
       </div>
     </div>

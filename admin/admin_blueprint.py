@@ -23,22 +23,41 @@ def process_admin_login():
         <html>
           <head>
             <style>
+            body::before, body::after {
+              content: ' ';
+              flex: auto;
+              height: 10vh;
+            }
             .container {
                 display: flex;
                 flex-direction: row;
             }
+            .input-box {
+                  margin: 16px;
+                  width: 50%;
+                  height: 10vh;
+                  font-size: 48px;
+                  background-color: #f5fafd;
+                  border-width: thick;
+                  border-color: #002d4d;
+                  border-radius: 24px;
+                  padding: 8px;
+            }
             .submit-button {
-                height: 64px;
+                width: 30%;
+                font-size: 36px;
+                padding: 16px;
                 margin: 16px;
                 border-radius: 16px;
                 background-color: #424242;
+                color: #ffffff;
                 box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0,0,0,.12);
             }
             </style>
           </head>
           <body>
-            <form action="/admin" method="POST">
-              <input type="text" name="password" />
+            <form action="/admin" method="POST" style="margin-top: 32vh;">
+              <input class="input-box" type="text" name="password" />
               <button class="submit-button">我是管理员！</button>
             </form>
           </body>

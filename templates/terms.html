@@ -1,77 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <title>万圣节鬼屋门票平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/card@2.3.0/dist/mdc.card.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/button@2.3.0/dist/mdc.button.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/typography@2.3.0/dist/mdc.typography.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/top-app-bar@2.3.0/dist/mdc.top-app-bar.min.css" />
+  <link rel="stylesheet" href="https://fonts.loli.net/icon?family=Material+Icons" />
+  <link rel="stylesheet" href={{url_for('static', filename='css/confirm.css')}}>
+</head>
+<body>
+  <div class="container">
+    <header class="mdc-top-app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+          <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" onclick="javascript: window.location='/';">
+          home
+          </button>
+          <span class="mdc-top-app-bar__title">确认购票信息</span>
+        </section>
+      </div>
+    </header>
+    <p class="message">如果您知道如何解决这个问题，欢迎加入KEEER</p>
 
-<!DOCTYPE html>
-<html lang="zh-CN" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#002d4d" />
-    <title>鬼屋注意事项</title>
-    <style>
-    html,body{
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      display: table;
-      text-align: center;
-      background-color: #f5fafd;
-      color: #002d4d;
-    }
-    body::before, body::after{
-      content: ' ';
-      height: auto;
-      display: table-row;
-    }
-    #wrapper{
-      display: inline-block;
-      width: 100%;
-      padding: 20px;
-    }
-    @media (min-width: 620px) {
-      #wrapper{
-        width: 600px;
-      }
-      #logo{
-        height: 64px;
-      }
-    }
-    @media (max-width: 619px) {
-      #wrapper{
-        width: 90%;
-      }
-      #links>a{
-        font-size: 18px;
-      }
-      #logo{
-        height: 32px;
-      }
-    }
-    #links>a{
-      text-decoration: none;
-      color: #002d4d;
-      margin: 10px;
-      position: relative;
-      display: inline-block;
-    }
-    #links>a::before{
-      position: absolute;
-      top: auto;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      content: ' ';
-      background-color: #002d4d;
-    }
-    #logo{
-      padding: 10px;
-    }
-    </style>
-    <script async src="https://www.google-analytics.com/analytics.js"></script>
-  </head>
-  <body>
-    <div id="wrapper">
-      <h1>注意事项</h1>
-      
+    <div class="mdc-card card">
+      <span class="center"><b>注意事项</b></div>
     </div>
-  </body>
+  </div>
+
+  <div id="bottom">
+    <!-- a bunch of todos-->
+    <a href="https://keeer.net/" class="link"><img class="keeer-logo" src="https://keeer.net/img/logo/dark-large.svg" /></a>
+    <p>Copyright © 2015-present KEEER. </p>
+    <p>All rights reserved.</p>
+  </div>
+</body>
 </html>

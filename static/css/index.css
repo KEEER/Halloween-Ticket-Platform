@@ -19,14 +19,12 @@ body::before, body::after {
     text-align: center;
 }
 .card {
-    width: 90%;
-    border-radius: 24px;
+ 
+  
 }
 .option {
     margin: 16px;
     text-align: center;
-    border-radius: 24px;
-    height: 16vh;
 }
 
 #bottom {

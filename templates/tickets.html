@@ -31,25 +31,27 @@
   </div>
   {% for ticket in TICKETS%}
     <div class="mdc-card card">
-      <span class="mdc-typography--body1">进场时间：{{ticket['info']}}</span>
-      <span class="mdc-typography--body2">过期时间：2019年11月1日下午10时00分</span>
-      <span class="mdc-typography--body2">唯一门票码：{{ticket['id']}}</span>
-      <span class="mdc-typography--body2">门票状态：{{STATUS_TO_STRING[STATUS[ticket['id']]]}}</span>
-      {% if STATUS[ticket['id']] == 0%}
-      <span class="mdc-typography--body2 center">入场时请向工作人员出示以下二维码</span>
-      <div id="qrcode"></div>
-      <script src={{url_for('static', filename='js/qrcode.js')}}></script>
-      <script>
-        var qrcode = new QRCode(document.getElementById("qrcode"), {
-          text: 'https://halloween.keeer.net/admin-scan?ticket={{ticket['id']}}',
-          width: 250,
-          height: 250,
-          colorDark : "#424242",
-          colorLight : "#ffffff",
-          correctLevel : QRCode.CorrectLevel.H
-        });
-      </script>
-      {% endif %}
+      <div>
+        <p class="mdc-typography--body1">进场时间：{{ticket['info']}}</span>
+        <p class="mdc-typography--body2">过期时间：2019年11月1日下午10时00分</span>
+        <p class="mdc-typography--body2">唯一门票码：{{ticket['id']}}</span>
+        <p class="mdc-typography--body2">门票状态：{{STATUS_TO_STRING[STATUS[ticket['id']]]}}</span>
+        {% if STATUS[ticket['id']] == 0%}
+          <p class="mdc-typography--body2 center">入场时请向工作人员出示以下二维码</span>
+          <div id="qrcode"></div>
+          <script src={{url_for('static', filename='js/qrcode.js')}}></script>
+          <script>
+            var qrcode = new QRCode(document.getElementById("qrcode"), {
+              text: 'https://halloween.keeer.net/admin-scan?ticket={{ticket['id']}}',
+              width: 250,
+              height: 250,
+              colorDark : "#424242",
+              colorLight : "#ffffff",
+              correctLevel : QRCode.CorrectLevel.H
+            });
+          </script>
+        {% endif %}
+      </div>
     </div>
   {% endfor %}
 </body>

@@ -17,7 +17,6 @@ def load_users_from_file():
             users = pickle.load(fr)
             fr.close()
     except FileNotFoundError:
-        print('failed to load users')
         return None
 
 def load_tokens_from_file():
@@ -28,7 +27,6 @@ def load_tokens_from_file():
             tokens = pickle.load(fr)
             fr.close()
     except FileNotFoundError:
-        print('failed to load tokens')
         return None     
     
 def dump_users_to_file():
@@ -73,11 +71,9 @@ def new_user(token):
             user = User.from_file(kiuid)
             user = user if user != None else User(kiuid)
             users.update({kiuid: user})
-            print('dumping users to file')
             dump_users_to_file()
         if token not in tokens:
             tokens.update({token: kiuid})
-            print('dumping tokens to file')
             dump_tokens_to_file()
         return True
     return False
@@ -112,12 +108,9 @@ def get_user_kredit_amount(token):
         return response['result']
 
 def get_user(token):
-    print('TOKENS:　', tokens)
-    print('USERS:　', users)
     if token not in tokens:
         result = new_user(token)
         if not result:
-            print('failed to get info')
             return None
     return users.get(tokens.get(token, ''), None)
 

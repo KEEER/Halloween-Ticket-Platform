@@ -35,4 +35,7 @@ body::before, body::after {
 .card {
     margin: 16px;
     padding: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
