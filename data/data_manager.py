@@ -124,7 +124,7 @@ def load_tickets_from_file():
             fr.close()
     except FileNotFoundError:
         # generate ticket
-        for i in range(360,360+150,15):
+        for i in range(5*60+30,8*60,15):
     	    tickets.append({
                 'id': (i-360)//15,
                 'body': {
