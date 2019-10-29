@@ -108,7 +108,10 @@ def process_stats():
     for k,v in data_manager.ticket_status.items():
         if v == TICKET_STATUS.UNUSED:
             unused_amount += 1
-    unused_ratio = float(unused_amount) / len(data_manager.ticket_status) * 100
+    sell_ticket_num = len(data_manager.ticket_status)
+    unused_ratio = 'N/A'
+    if sell_ticket_num > 0:
+      unused_ratio = float(unused_amount) / sell_ticket_num * 100
     return '''
     <html lang="zh">
     <head>
@@ -122,7 +125,7 @@ def process_stats():
     <body>
     <h1>当前门票总出售量：%d 张。</h1>
     <h1>未使用数量：%d 张</h1>
-    <h1>门票未使用比例：%f %</h1>
+    <h1>门票未使用比例：%s %</h1>
     <h1>在线管理员数量：%d</h1>
     </body>
-    </html>'''%(len(data_manager.ticket_status), unused_amount, unused_ratio, len(admin_tokens))
+    </html>'''%(len(data_manager.ticket_status), unused_amount, str(round(unused_ratio,3)), len(admin_tokens))
