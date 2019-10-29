@@ -37,7 +37,19 @@
       <span class="mdc-typography--body2">门票状态：{{STATUS_TO_STRING[STATUS[ticket['id']]]}}</span>
       <span class="mdc-typography--body2 center">入场时请向工作人员出示以下二维码</span>
       <img src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl={{SERVER_ADDRESS}}/admin-scan?ticket={{ticket['id']}}" style="width: 250px; height: 250px;" />
+      <script src="https://cdn.jsdelivr.net/npm/qrcode-js@0.0.2/lib/qrcode.js"></script>
+      <script>
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+          text: 'https://halloween.keeer.net/admin-scan?ticket={{ticket['id']}}',
+          width: 250,
+          height: 250,
+          colorDark : "#424242",
+          colorLight : "#ffffff",
+          correctLevel : QRCode.CorrectLevel.H
+        });
+      </script>
     </div>
+    
   {% endfor %}
 </body>
 </html>
