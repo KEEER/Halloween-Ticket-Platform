@@ -9,7 +9,29 @@ def process_admin_scan():
     code = request.cookies.get('admin-code','')
     ticket = request.args.get('ticket','')
     if code == '' or code not in admin_tokens:
-        return '<h1>你不是鬼屋的工作人员，这样没有用的（讲道理，你想你这张票直接作废么？）</p1>'
+        return '''
+        <html>
+        <head>
+        <style>
+          body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+          }
+          iframe {
+            width: 100%;
+            height: auto;
+          }
+        </style>
+        </head>
+        <body>
+          <h1>
+            <p>哈，被我发现了！你不是鬼屋的工作人员~</p>
+            <p>如果你实在无聊的话，玩玩这个游戏怎么样？</p>
+          </h1>
+          <iframe src="" class=""></iframe>
+        </body>
+      </html>'''
     if ticket == '':
         return 'Invalid form', 400
     data_manager.ticket_status[ticket] = TICKET_STATUS.USED
@@ -71,3 +93,35 @@ def process_admin_login():
     rsp.set_cookie('admin-code',token, max_age=60*60*4)
     admin_tokens.append(token)
     return rsp
+
+@admin_blueprint.route(ROUTES.STATS, methods=['GET'])
+def process_admin_scan():
+    code = request.cookies.get('admin-code','')
+    if code == '' or code not in admin_tokens:
+        return '''
+          <h1>
+            <p>哈，被我发现了！你不是鬼屋的工作人员~</p>
+            <p>如果你实在无聊的话，玩玩这个游戏怎么样？</p>
+          </h1>'''
+    
+    unused_amount = 0
+    for k,v in data_manager.ticket_status.items():
+        if v == TICKET_STATUS.UNUSED:
+            unused_amount += 1
+    unused_ratio = float(unused_amount) / len(data_manager.ticket_status) * 100
+    return '''<html lang="zh">
+    <head>
+    <style>
+    body{
+      margin: 8px;
+      text-align: center;
+    }
+    </style>
+    </head>
+    <body>
+    <h1>当前门票总出售量：%d 张。</h1>
+    <h1>未使用数量：%d 张</h1>
+    <h1>门票未使用比例：%3f %</h1>
+    <h1>在线管理员数量：%d</h1>
+    </body>
+    </html>'''%(len(data_manager.ticket_status), unused_amount, unused_ratio, len(admin_tokens))

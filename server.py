@@ -29,5 +29,6 @@ if __name__ == '__main__':
         waitress.serve(
             server,
             host = config['server']['host'],
-            port = config['server']['port']
+            port = config['server']['port'],
+            threads = 128
         )

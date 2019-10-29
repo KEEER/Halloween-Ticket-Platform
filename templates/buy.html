@@ -38,11 +38,9 @@
   {% for ticket in TICKETS%}
     <div class="mdc-card card">
       <div>
-        <h4 class="mdc-typography--headline5">时间段 {{ticket['id']+1}}：</h4>
-        <p class="mdc-typography--body1">进场时间：{{ticket['body']['start_time']}}</span>
-        <p class="mdc-typography--body2">剩余 {{ticket['body']['free_position']}} 张票</span>
-        <p class="mdc-typography--body2">单张价格：{{PRICE / 100}} Kredit</span>
-        <p class="mdc-typography--body2"><b>请您在进场时间前5分钟在入口等待，超过进场时间此票自动失效<b></span>
+        <h5 class="mdc-typography--headline5">进场时间：{{ticket['body']['start_time']}}</h5>
+        <p class="mdc-typography--body2">剩余 {{ticket['body']['free_position']}} 张票</p>
+        <p class="mdc-typography--body2">单张价格：{{PRICE / 100}} Kredit</p>
       </div>
       <div>
         {% if ticket['body']['free_position'] > 0 %}
