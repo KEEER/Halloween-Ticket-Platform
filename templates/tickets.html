@@ -35,6 +35,7 @@
       <span class="mdc-typography--body2">过期时间：2019年11月1日下午10时00分</span>
       <span class="mdc-typography--body2">唯一门票码：{{ticket['id']}}</span>
       <span class="mdc-typography--body2">门票状态：{{STATUS_TO_STRING[STATUS[ticket['id']]]}}</span>
+      {% if STATUS[ticket['id']] == 0%}
       <span class="mdc-typography--body2 center">入场时请向工作人员出示以下二维码</span>
       <div id="qrcode"></div>
       <script src={{url_for('static', filename='js/qrcode.js')}}></script>
@@ -48,8 +49,8 @@
           correctLevel : QRCode.CorrectLevel.H
         });
       </script>
+      {% endif %}
     </div>
-    
   {% endfor %}
 </body>
 </html>
