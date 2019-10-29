@@ -126,7 +126,7 @@ def load_tickets_from_file():
         # generate ticket
         for i in range(5*60+30,8*60,15):
     	    tickets.append({
-                'id': (i-(5*60+30))//15,
+                'id': (i-(5*60+30 - 15))//15,
                 'body': {
                     'start_time': '2019 年 11 月 1 日 下午 %d 时 %.2d 分'% (i//60,i%60),
                     'free_position': 25
