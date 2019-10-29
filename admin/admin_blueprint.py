@@ -13,6 +13,7 @@ def process_admin_scan():
     if ticket == '':
         return 'Invalid form', 400
     data_manager.ticket_status[ticket] = TICKET_STATUS.USED
+    return '<h1>成功检票！</h1>'
 
 @admin_blueprint.route(ROUTES.ADMIN_LOGIN, methods=['GET','POST'])
 def process_admin_login():
