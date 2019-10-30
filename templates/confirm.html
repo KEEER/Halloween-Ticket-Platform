@@ -26,19 +26,19 @@
     <p class="message">如果您知道如何解决这个问题，欢迎加入KEEER</p>
 
     <div class="mdc-card card">
-      <p class="mdc-typography--body2">进场时间：{{TICKET['body']['start_time']}}</p>
-      <p class="mdc-typography--body2">您需支付：{{PRICE / 100}} Kredit</p>
-      <p class="mdc-typography--body2">
-        <b>请您在进场时间前5分钟在入口稍作等候，超过进场时间此票自动失效<b>
+      <p class="mdc-typography--body1 reset-margin">进场时间：<span class="mdc-typography--headline6">{{TICKET['body']['start_time']}}</span></p>
+      <p class="mdc-typography--body1 reset-margin">您需支付：<b>{{PRICE / 100}}</b> Kredit</p>
+      <p class="mdc-typography--body1 reset-margin">
+        <b>请您在进场时间前5分钟在入口稍作等候，超过进场时间此票自动失效</b>
       </p>
-      <p class="mdc-typography--body2">
-        <b>温馨提示：在入口过早排队是没有意义的哦~<b>
+      <p class="mdc-typography--body1 reset-margin">
+        <b>温馨提示：在入口过早排队是没有意义的哦~</b>
       </p>
-      <p class="mdc-typography--body1 center"> 请您<b>务必</b>仔细阅读并同意<a href='/terms'>注意事项</a></p>
+      <p class="mdc-typography--body1 reset-margin"> 请您<b>务必</b>仔细阅读并同意<a href='/terms'>注意事项</a></p>
       <p>点击下方的按钮即表示您已经阅读并同意注意事项</p>
       <form action="/confirm" method="POST" class="center">
         <input id="id" name="id" class="hidden"></input>
-        <button class="mdc-button mdc-button--raised confirm-button">确认并购买</button>
+        <button class="mdc-button mdc-button--raised">确认并购买</button>
       </form>
     </div>
   </div>

@@ -29,16 +29,16 @@
   <div class="mdc-card message-card-base">
     <p class="message">您还有 {{AVALIABLE_AMOUNT / 100}} Kredit</p>
   </div>
+  <script src="{{url_for('static', filename='js/qrcode.js')}}"></script>
   {% for ticket in TICKETS%}
     <div class="mdc-card card">
       <div>
-        <h5 class="mdc-typography--headline5"><p>进场时间：{{ticket['info']}}</p></h5>
-        <p class="mdc-typography--body2">唯一门票码：{{ticket['id']}}</span>
-        <p class="mdc-typography--body2">门票状态：{{STATUS_TO_STRING[STATUS[ticket['id']]]}}</span>
-        <p class="mdc-typography--body2"><b>请您在进场时间前5分钟在入口等待，超过进场时间此票自动失效<b></span>
-        <script src={{url_for('static', filename='js/qrcode.js')}}></script>
+        <h5 class="mdc-typography--headline6 reset-margin"><span class="mdc-typography--body1">进场时间：</span>{{ticket['info']}}</h5>
+        <p class="mdc-typography--body2 reset-margin">唯一门票码：{{ticket['id']}}</span>
+        <p class="mdc-typography--body2 reset-margin">门票状态：{{STATUS_TO_STRING[STATUS[ticket['id']]]}}</span>
+        <p class="mdc-typography--body2 reset-margin"><b>请您在进场时间前5分钟在入口等待，超过进场时间此票自动失效</b></span>
         {% if STATUS[ticket['id']] == 0%}
-          <p class="mdc-typography--body2 center">入场时请向工作人员出示以下二维码</span>
+          <p class="mdc-typography--body2 center reset-margin">入场时请向工作人员出示以下二维码</span>
           <div id="qrcode-{{ticket['id']}}"></div>
           
           <script>

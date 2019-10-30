@@ -19,7 +19,7 @@ body::before, body::after {
 .card {
     margin-top: 32px;
     width: 90%;
-    padding: 8px;
+    padding: 16px;
     margin: 16px;
 }
 .option {
@@ -29,7 +29,6 @@ body::before, body::after {
     height: 16vh;
 }
 .confirm-button {
-    border-radius: 24px;
     align-self: center;
 }
 .center {
@@ -55,4 +54,7 @@ body::before, body::after {
 }
 .hidden {
     display: none;
+}
+.reset-margin {
+    margin: 6px 0;
 }

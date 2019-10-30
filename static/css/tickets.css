@@ -42,3 +42,6 @@ body::before, body::after {
     align-content: center;
     margin: 8px;
 }
+.reset-margin {
+    margin: 4px;
+}

@@ -18,20 +18,23 @@ def process_admin_scan():
             margin: 0;
             display: flex;
             flex-direction: column;
+            background-color: #f5fafd;
           }
-          h1 {
+          h3 {
             height: 64px;
+            margin: 4px;
           }
           iframe {
             width: 100%;
-            height: calc(100vh - 64px);
+            height: calc(100vh - 72px);
+            border: none;
           }
         </style>
         </head>
         <body>
-          <h1>
+          <h3>
           哈，被我发现了！你不是鬼屋的工作人员~ 如果你实在无聊的话，玩玩这个游戏怎么样？
-          </h1>
+          </h3>
           <iframe src="https://about.keeer.net/256/" class=""></iframe>
         </body>
       </html>'''

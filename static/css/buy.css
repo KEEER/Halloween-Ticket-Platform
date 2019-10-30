@@ -34,8 +34,17 @@ body::before, body::after {
 }
 .card {
     margin: 16px;
-    padding: 8px;
+    padding: 16px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 720px;
+}
+.reset-margin {
+    margin: 4px;
+}
+.mdc-button:disabled {
+    min-width: 80px;
 }

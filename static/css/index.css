@@ -6,6 +6,7 @@ body {
     flex-direction: column;
     background-image: url('https://s2.ax1x.com/2019/10/29/Kfa9Nd.jpg');
     background-size: cover;
+    height: 100vh;
 }
 
 body::before, body::after {
@@ -46,4 +47,9 @@ body::before, body::after {
   height: 16px;
   position: relative;
   bottom: -4px;
+}
+.card {
+    width: 60%;
+    min-width: 300px;
+    max-width: 640px;
 }
