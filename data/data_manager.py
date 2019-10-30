@@ -62,7 +62,7 @@ def new_user(token):
         }
     )
     if response.status_code != 200:
-        raise Exception(response.status_code)
+        raise Exception('Response error<%s>:%s'%(response.status_code, response.text))
         return False
     response = response.json()
     if response['status'] == 0:
