@@ -77,7 +77,7 @@ def process_login():
                         set_nickname_response = set_nickname_response.json()
                         if set_nickname_response['status'] == 0 and set_nickname_response['result']['status'] == 0:
                             flask_response = make_response(redirect('/'))
-                            flask_response.set_cookie('kas-account-token', token)
+                            flask_response.set_cookie('kas-account-token', token, domain='.keeer.net')
                             return flask_response
                 return render_template('login.html', has_error=True, request_status = response['status'], api_status = response['result']['status'])
             except Exception as e:
