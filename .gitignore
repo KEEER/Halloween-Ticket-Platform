@@ -39,3 +39,6 @@ server.config
 **.log
 
 **.pkl
+
+.VSCodeCounter
+.VSCodeCounter\**
